@@ -1,0 +1,760 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    /* ADICIONADO */
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    transition: background-color .3s, color .3s;
+}
+
+/* ======================================== */
+/* === ADICIONADO: VARIÁVEIS PARA O TEMA === */
+/* ======================================== */
+:root {
+    /* MODO CLARO (PADRÃO) */
+    --cor-fundo: #FFFFFF;
+    --cor-texto: black;
+    --cor-texto-secundario: #333;
+    --cor-texto-branco: #FFFFFF;
+    --cor-primaria: #0234FD;
+    --cor-borda: black;
+    --cor-borda-clara: #d1d5db;
+    --sombra-card: 0 0 15px rgba(2, 52, 253, 0.7);
+    --sombra-card-hover: 0 0 25px rgba(2, 52, 253, 1);
+    --cor-fundo-tag: #eef2ff;
+    --cor-texto-tag: #4338ca;
+    --cor-borda-tag: #dbeafe;
+    --switch-desligado: #ccc;
+    --switch-ligado: #ccc;
+    --cor-footer-texto: #1a1a1a;
+    --cor-footer-texto-suave: #555;
+    --cor-footer-link: #333;
+    --cor-footer-fundo: #ffffff;
+    --cor-footer-borda: #f0f0f0;
+    --cor-footer-azul: #0052FF;
+}
+
+body.dark-mode {
+    /* MODO ESCURO */
+    --cor-fundo: #121212;
+    --cor-texto: #e0e0e0;
+    --cor-texto-secundario: #bbbbbb;
+    --cor-texto-branco: #e0e0e0;
+    --cor-primaria: #CD7F32;
+    --cor-borda: #CD7F32;
+    --cor-borda-clara: #374151;
+    --sombra-card: 0 0 15px #CD7F32;
+    --sombra-card-hover: 0 0 25px #CD7F32;
+    --cor-fundo-tag: #374151;
+    --cor-texto-tag: #A5B4FC;
+    --cor-borda-tag: #4B5563;
+    --switch-desligado: #444;
+    --switch-ligado: #444;
+    --cor-footer-texto: #e0e0e0;
+    --cor-footer-texto-suave: #9CA3AF;
+    --cor-footer-link: #bbbbbb;
+    --cor-footer-fundo: #1a1a1a;
+    --cor-footer-borda: #374151;
+    --cor-footer-azul: #CD7F32;
+}
+main{
+     background-color: var(--cor-fundo);
+    width: 100%;
+
+}
+
+/* ======================================== */
+/* === FIM DAS ADIÇÕES === */
+/* ======================================== */
+
+#cabeçalho {
+    display: flex;
+}
+
+#logo {
+    width: 25%;
+    margin-top: -5%;
+}
+
+ul {
+    padding: 5%;
+    display: flex;
+}
+
+li {
+    list-style: none;
+    margin-left: 20%;
+    color: var(--cor-texto);
+    /* ALTERADO */
+    padding: 10%;
+    font-size: 18px;
+}
+
+li a {
+    text-decoration: none;
+    color: inherit;
+    /* Adicionado para garantir a herança da cor */
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-top: 7%;
+    margin-left: 15%;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--switch-desligado);
+    /* ALTERADO */
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    /* Mantido branco para o círculo */
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: var(--switch-ligado);
+    /* ALTERADO */
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.Login {
+    margin-left: 15%;
+    height: 50px;
+    width: 143px;
+    margin-top: 6%;
+    border-radius: 20px;
+    background-color: var(--cor-primaria);
+    /* ALTERADO */
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.4s ease;
+}
+
+.Login a {
+    color: var(--cor-texto-branco);
+    /* ALTERADO */
+    font-size: 32px;
+    text-decoration: none;
+    transition: color 0.4s ease;
+}
+
+.Login::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+}
+
+.Login:hover {
+    background-color: var(--cor-fundo);
+    /* ALTERADO */
+    border: 1px solid var(--cor-primaria);
+    /* ALTERADO */
+}
+
+.Login:hover a {
+    color: var(--cor-primaria);
+    /* ALTERADO */
+}
+
+#banner {
+    margin-left: 10%;
+    align-items: left;
+    height: 20%;
+    margin-top: -3%;
+}
+
+#banner h2 {
+    font-size: 48px;
+}
+
+#banner h5 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 0.5%;
+}
+
+#banner img {
+    float: right;
+    margin-top: -27%;
+    width: 500px;
+    margin-left: 00px;
+}
+
+body.dark-mode #banner img {
+    filter: brightness(0.8) saturate(0.9);
+}
+
+.serviços {
+    height: 40px;
+    width: 130px;
+    margin-top: 6%;
+    border-radius: 20px;
+    background-color: var(--cor-primaria);
+    /* ALTERADO */
+    border: none;
+    margin-top: 2%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.serviços a {
+    text-decoration: none;
+    color: var(--cor-texto-branco);
+    /* ALTERADO */
+    transition: color 0.3s ease;
+}
+
+.serviços:hover {
+    background-color: var(--cor-fundo);
+    /* ALTERADO */
+    border: 1px solid var(--cor-primaria);
+    /* ALTERADO */
+}
+
+.serviços:hover a {
+    color: var(--cor-primaria);
+    /* ALTERADO */
+}
+
+.btnlogin {
+    height: 40px;
+    width: 130px;
+    margin-top: 6%;
+    border-radius: 20px;
+    background-color: var(--cor-fundo);
+    /* ALTERADO */
+    border: 1px solid var(--cor-borda);
+    /* ALTERADO */
+    margin-top: -1%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btnlogin a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    /* ALTERADO */
+    transition: color 0.3s ease;
+}
+
+.btnlogin:hover {
+    background-color: var(--cor-primaria);
+    /* ALTERADO */
+    border: 1px solid var(--cor-primaria);
+    /* Adicionado para consistência */
+}
+
+.btnlogin:hover a {
+    color: var(--cor-texto-branco);
+    /* ALTERADO */
+}
+
+#container1,
+#container2 {
+    border: 1px solid var(--cor-borda);
+    /* ALTERADO */
+    border-radius: 30px;
+    width: 45%;
+    height: 280px;
+    margin-top: 10%;
+    box-shadow: var(--sombra-card);
+    /* ALTERADO */
+    transition: all 0.3s ease-in-out;
+    background-color: var(--cor-fundo);
+    margin-left: 20px;
+    /* ADICIONADO */
+}
+
+
+#container1:hover,
+#container2:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-card-hover);
+    /* ALTERADO */
+}
+
+/* O resto de #container1 e #container2 mantido */
+#container1 img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: -40%;
+    margin-right: 3%;
+    float: right;
+}
+
+#titulo2 {
+    margin-top: 5%;
+    margin-left: 5%;
+    font-size: 25px;
+    font-weight: normal;
+    align-items: left
+}
+
+#dev1 {
+    color: var(--cor-primaria);
+    margin-top: -2%;
+    font-weight: normal;
+    margin-left: 5%;
+    font-size: 40px;
+}
+
+/* ALTERADO */
+#sub2 {
+    align-items: left;
+    margin-left: 5%;
+    font-size: 26px;
+    margin-top: 1%;
+}
+
+#container2 {
+    float: right;
+    margin-right: 80px;
+    margin-top: -22.5%
+}
+
+#container2:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-card-hover)
+}
+
+/* ALTERADO */
+#container2 img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: -40%;
+    margin-right: 6%;
+    float: right;
+}
+
+#titulo3 {
+    margin-top: 5%;
+    margin-left: 5%;
+    font-size: 25px;
+    font-weight: normal;
+    align-items: left
+}
+
+#dev2 {
+    color: var(--cor-primaria);
+    margin-top: -2%;
+    font-weight: normal;
+    margin-left: 5%;
+    font-size: 40px;
+}
+
+/* ALTERADO */
+#sub3 {
+    align-items: left;
+    margin-left: 5%;
+    font-size: 26px;
+    margin-top: 1%;
+}
+
+.informações {
+    padding: 4rem 5%; /* Adiciona espaçamento à volta da secção */
+    text-align: center;
+}
+
+.funciona {
+    font-size: 2.5rem; /* Tamanho de fonte mais legível */
+    margin: 0 0 3rem 0; /* Remove margens laterais e adiciona espaço abaixo */
+    text-align: center;
+}
+
+.info-cards-container {
+    display: flex; /* A CORREÇÃO PRINCIPAL: Usa Flexbox para alinhar */
+    justify-content: center; /* Centraliza os cartões */
+    gap: 4rem; /* Espaço entre os cartões */
+    flex-wrap: wrap; /* Permite que os cartões quebrem a linha em ecrãs menores */
+}
+
+#card1, #card2, #card3, #card4 {
+    /* REMOVIDO: float e margens negativas */
+    display: flex;
+    flex-direction: column; /* Organiza imagem e texto na vertical */
+    align-items: center;
+    gap: 1rem;
+    width: auto; /* A largura será determinada pelo conteúdo */
+    margin: 0; /* Remove todas as margens que quebravam o layout */
+}
+
+#card1 img, #card2 img, #card3 img, #card4 img {
+    width: 40px;
+    height: 40px;
+    margin: 0; /* Remove margens negativas */
+}
+
+.uploadh5, .inboxh5, .checkh5, .moneyh5 {
+    font-size: 16px;
+    color: var(--cor-texto-secundario);
+    text-align: center;
+    margin: 0;
+}
+
+
+/* --- CORREÇÃO DA SECÇÃO "OPORTUNIDADES" --- */
+#oportunidades {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 4rem 0 3rem 0;
+}
+
+#vagas,
+#vaga2,
+#vaga3 {
+    border: 1px solid var(--cor-borda-clara);
+    background-color: var(--cor-fundo);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .05);
+    transition: transform .3s ease, box-shadow .3s ease;
+    max-width: 800px; /* Largura máxima do cartão */
+    margin: 1.5rem auto; /* Espaçamento entre os cartões e centralização */
+    /* REMOVIDO: altura fixa (height) para permitir que o conteúdo cresça */
+}
+
+#vagas:hover,
+#vaga2:hover,
+#vaga3:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1);
+}
+
+/* Estrutura interna do cartão de vaga com Flexbox */
+.vaga-header {
+    display: flex;
+    justify-content: space-between; /* Coloca o título à esquerda e os detalhes à direita */
+    align-items: flex-start; /* Alinha no topo */
+    margin-bottom: 1rem;
+}
+
+.vaga-info h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600; /* Damos mais peso ao título */
+}
+
+.vaga-detalhes {
+    text-align: right; /* Alinha o salário e o local à direita */
+    flex-shrink: 0; /* Impede que este bloco encolha */
+    padding-left: 1rem;
+}
+
+.vaga-detalhes .salario,
+.vaga-detalhes .local {
+    margin: 0;
+    color: var(--cor-texto-secundario);
+}
+
+.vaga-detalhes .salario {
+    font-weight: 500;
+}
+
+/* Contentor das tags de tecnologia */
+.container-linguagens {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as tags quebrem a linha */
+    gap: 0.5rem; /* Espaçamento entre as tags */
+    /* REMOVIDO: altura e largura fixas */
+}
+
+.tag-linguagem {
+    background-color: var(--cor-fundo-tag);
+    color: var(--cor-texto-tag);
+    border: 1px solid var(--cor-borda-tag);
+    padding: 5px 12px;
+    border-radius: 16px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    /* REMOVIDO: altura e largura em percentagem */
+}
+
+.linguagem-logo {
+    width: 18px;
+    height: 18px;
+}
+
+.faq-section {
+    display: flex;
+    flex-direction: column; /* Organiza o título e os cartões em uma coluna */
+    align-items: center;   /* Centraliza tudo horizontalmente */
+    gap: 1.5rem;           /* Espaço entre o título e o primeiro cartão */
+    padding: 4rem 2rem;    /* Espaçamento interno da secção */
+}
+
+/* 2. TÍTULO PRINCIPAL ("Você ainda tem dúvidas?") */
+.faq-section .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--cor-texto);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* 3. ESTILO BASE PARA CADA CARTÃO DE PERGUNTA */
+.faq-card {
+    border: 1px solid var(--cor-borda-clara);
+    background-color: var(--cor-fundo);
+    border-radius: 16px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 800px; /* Largura máxima para os cartões */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-card-hover);
+}
+
+/* 4. ESTILO DA PERGUNTA E DA RESPOSTA DENTRO DO CARTÃO */
+.faq-question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--cor-texto);
+    margin: 0 0 1rem 0; /* Espaço abaixo da pergunta */
+}
+
+.faq-answer {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--cor-texto-secundario);
+    line-height: 1.6; /* Melhora a legibilidade */
+    margin: 0;
+}
+
+.cta-section {
+    display: flex; /* Organiza os itens em uma coluna */
+    align-items: center;   /* Centraliza tudo horizontalmente */
+    padding: 5rem 2rem;    /* Adiciona um bom espaçamento interno */
+    margin-top: 2rem;
+}
+
+/* 2. TÍTULO PRINCIPAL ("Pronto para começar?") */
+.pronto {
+    font-size: 2.5rem; /* Tamanho de fonte maior e mais impactante */
+    font-weight: 700;
+    margin: 0 0 1rem 0; /* Remove margens desnecessárias e adiciona espaço abaixo */
+}
+
+/* 3. SUBTÍTULO */
+.subpronto {
+    font-size: 1.1rem; /* Tamanho de fonte ajustado para legibilidade */
+    font-weight: 400;
+    color: var(--cor-texto-secundario);
+    max-width: 550px; /* Evita que o texto fique muito largo em ecrãs grandes */
+    line-height: 1.6;
+    margin: 0 0 2.5rem 0; /* Espaço abaixo antes do botão */
+}
+
+/* 4. BOTÃO PRINCIPAL ("Crie sua conta") */
+.conta {
+    /* REMOVIDO: width, height e margin-left em percentagem */
+    border: 1px solid var(--cor-borda);
+    background-color: var(--cor-primaria);
+    border-radius: 50px; /* Bordas mais arredondadas para um visual moderno */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transição suave para todos os efeitos */
+    padding: 0; /* Remove o padding do botão para que o link interno o controle */
+}
+
+.conta:hover {
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-primaria);
+    transform: translateY(-3px); /* Efeito subtil de "elevar" */
+    box-shadow: var(--sombra-card-hover);
+}
+
+/* O link DENTRO do botão */
+.conta a {
+    display: block; /* Faz o link preencher todo o botão */
+    padding: 1rem 2.5rem; /* Define o tamanho do botão através do espaçamento interno */
+    color: var(--cor-texto-branco);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: color .3s ease;
+}
+
+.conta:hover a {
+    color: var(--cor-primaria);
+}
+/* ALTERADO */
+
+.site-footer {
+    background-color: var(--cor-footer-fundo);
+    color: var(--cor-footer-texto);
+    border-top: 1px solid var(--cor-footer-borda);
+    padding: 4rem 5%; /* Mais espaçamento vertical e lateral */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 2. LAYOUT DAS COLUNAS COM GRID */
+.footer-top {
+    display: grid;
+    /* Cria um grid flexível com colunas de no mínimo 200px */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.5rem; /* Espaço entre as colunas */
+    padding-bottom: 2.5rem;
+}
+
+.footer-col-logo {
+    /* Faz a coluna da logo ocupar mais espaço em ecrãs maiores */
+    grid-column: span 2;
+}
+
+/* 3. LOGO E DESCRIÇÃO */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    color: var(--cor-footer-azul);
+}
+
+.logo-text {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.logo-description {
+    color: var(--cor-footer-texto-suave);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 350px; /* Evita que o texto fique muito largo */
+}
+
+/* 4. TÍTULOS E LINKS DAS COLUNAS */
+.footer-col h4 {
+    color: var(--cor-footer-azul);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem 0;
+}
+
+.footer-col nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-col nav ul li a {
+    color: var(--cor-footer-link);
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.footer-col nav ul li a:hover {
+    color: var(--cor-footer-azul);
+    text-decoration: underline;
+}
+
+/* 5. ÍCONES SOCIAIS */
+.footer-social-icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-social-icons a {
+    color: var(--cor-footer-texto-suave);
+    transition: all 0.3s ease;
+}
+
+.footer-social-icons a:hover {
+    color: var(--cor-footer-azul);
+    transform: translateY(-2px);
+}
+
+.footer-social-icons svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* 6. DIVISOR E PARTE INFERIOR */
+.footer-divider {
+    background-color: var(--cor-footer-borda);
+    height: 1px; /* Linha muito mais subtil */
+    border: none;
+    margin: 2rem 0;
+}
+
+.footer-bottom {
+    color: var(--cor-footer-texto-suave);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  /* Começa um pouco para baixo E com uma leve rotação de -3 graus */
+  transform: translateY(60px) rotate(-3deg);
+  
+  /* Duração de 1 segundo e uma curva de aceleração mais suave */
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  /* Volta à sua posição original e rotação 0 */
+  transform: translateY(0) rotate(0deg);
+}
